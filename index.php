@@ -5,9 +5,11 @@ echo '<br>';
 
 if (strpos($email, '.') && strpos($email, '@')) {
   echo "l'email che hai inserito è valida.";
+  $valid = true;
 
 } else {
   echo "l'email non è valida non contiene una dei seguenti caratteri '.' o '@'";
+  $valid = false;
 }
 ?>
 
@@ -43,6 +45,22 @@ if (strpos($email, '.') && strpos($email, '@')) {
       <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
   </div>
   </form>
+  <div class="container">
+
+    <?php if ($valid): ?>
+      <div class="alert alert-success text-uppercase" role="alert">
+        l'email che hai inserito è valida.
+      </div>
+    <?php endif ?>
+
+    <?php if (!$valid): ?>
+      <div class="alert alert-warning text-uppercase" role="alert">
+        l'email non è valida non contiene uno dei seguenti caratteri ' . ' o '@'
+      </div>
+    <?php endif ?>
+
+
+  </div>
   </div>
 </body>
 
